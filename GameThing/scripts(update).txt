@@ -1,0 +1,39 @@
+function debug() {
+    console.log("Function Succesful")
+}
+
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
+
+let i = 0;
+let txtSpeed = 1;
+let txt1 = 'Lorem Ipsum aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+let txtLen1 = txt1.length;
+let txt2 = 'Second Text worked haha';
+let txtLen2 = txt2.length;
+
+function textScroll(txt, elem, speed) {
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById(elem).innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+    typeWriter();
+    if (i = txt.length) {
+        i = 0;
+    } else {
+        
+    }
+}
+
+
+  
+    function startFunction() {
+        document.getElementById('start-btn').style.display = 'none';
+
+        delay(10).then(() => textScroll(txt1, 'para1', txtSpeed));
+        delay(txtLen1*txtSpeed*10).then(() => textScroll(txt2, 'para2', txtSpeed));
+    }
